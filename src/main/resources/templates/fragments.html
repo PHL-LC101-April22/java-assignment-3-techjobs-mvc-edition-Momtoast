@@ -27,5 +27,36 @@
         </div>
     </div>
 
+    <div th:fragment="job-results">
+        <th:block th:each="job : ${jobs}">
+            <table class="job-listing">
+                <tr>
+                    <td>ID</td>
+                    <td th:text="${job.id}"></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td th:text="${job.name}"></td>
+                </tr>
+                <tr>
+                    <td th:attr="class=${choice=='employer' ? 'chosen' : 'base condition-false'}" >Employer</td>
+                    <td><a th:href="@{/list/jobs(column=${'employer'},value=${job.employer})}" th:text="${job.employer}"></a></td>
+                </tr>
+                <tr>
+                    <td th:attr="class=${choice=='location' ? 'chosen' : 'base condition-false'}">Location</td>
+                    <td><a th:href="@{/list/jobs(column=${'location'},value=${job.location})}" th:text="${job.location}"></a></td>
+                </tr>
+                <tr>
+                    <td th:attr="class=${choice=='positionType' ? 'chosen' : 'base condition-false'}">Position Type</td>
+                    <td><a th:href="@{/list/jobs(column=${'positionType'},value=${job.positionType})}" th:text="${job.positionType}"></a></td>
+                </tr>
+                <tr>
+                    <td th:attr="class=${choice=='coreCompetency' ? 'chosen' : 'base condition-false'}">Skill</td>
+                    <td><a th:href="@{/list/jobs(column=${'coreCompetency'},value=${job.coreCompetency})}" th:text="${job.coreCompetency}"></a></td>
+                </tr>
+            </table>
+        </th:block>
+    </div>
+
 </body>
 </html>

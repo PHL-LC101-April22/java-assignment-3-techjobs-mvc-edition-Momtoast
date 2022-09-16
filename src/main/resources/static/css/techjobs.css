@@ -44,3 +44,7 @@ label {
 .centered {
     text-align: center;
 }
+
+.chosen {
+    font-style: italic;
+}
